@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			table, th, td {
+				border: 1px solid black;
+				border-collapse: collapse;
+			}
+		</style>
+	</head>
+	<body>
+		<table style="width: 100%;">
+			<tr th:each="billdetails : ${billdetails}">
+				<td>
+					<br>
+					<br>
+					<p style="padding-left: 50px;">Seller:</p>
+					<p style="padding-left: 50px;" th:text="${billdetails.seller}"></p>
+					<p style="padding-left: 50px;" th:text="${billdetails.sellerAddress}"></p>
+					<p style="padding-left: 50px;">GSTIN : <span th:text="${billdetails.sellerGstin}"></span></p>
+					<br>
+					<br>
+				</td>
+				<td>
+					<br>
+					<br>
+					<p style="padding-left: 50px;">Buyer:</p>
+					<p style="padding-left: 50px;" th:text="${billdetails.buyer}"></p>
+					<p style="padding-left: 50px;" th:text="${billdetails.buyerAddress}"></p>
+					<p style="padding-left: 50px;">GSTIN : <span th:text="${billdetails.buyerGstin}"></span></p>
+					<br>
+					<br>
+				</td>
+			</tr>
+		</table>
+		<table style="width: 100%;">
+			<thead>
+				<tr>
+					<th> Item </th>
+					<th> Quantity </th>
+					<th> Rate </th>
+					<th> Amount </th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr th:each="item : ${billdetails.items}">
+					<td style="text-align: center;" th:text="${item.name}"></td>
+					<td style="text-align: center;" th:text="${item.quantity}"></td>
+					<td style="text-align: center;" th:text="${item.rate}"></td>
+					<td style="text-align: center;" th:text="${item.amount}"></td>
+				</tr>
+			</tbody>
+
+		</table>
+	</body>
+</html>	
